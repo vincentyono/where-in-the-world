@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5rem;
+  padding: 1.5rem 5rem;
 
   h1 {
     font-size: 1.75em;
@@ -29,12 +29,12 @@
 
 .light {
   color: variables.$light-mode-text;
-  background-color: variables.$light-mode-bg;
-  box-shadow: 0 0 12px -5px variables.$light-mode-input;
+  background-color: variables.$light-mode-element;
+  box-shadow: variables.$light-mode-shadow;
 }
 
 .dark {
   color: variables.$dark-mode-text;
-  background-color: variables.$dark-mode-bg;
-  box-shadow: 0 0 12px -5px #000000;
+  background-color: variables.$dark-mode-element;
+  box-shadow: variables.$dark-mode-shadow;
 }

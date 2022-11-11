@@ -9,3 +9,7 @@ $light-mode-element: hsl(0, 0%, 100%);
 
 /* Fonts */
 $nunito-sans: "Nunito Sans", sans-serif;
+
+/* Shadows */
+$light-mode-shadow: 0 0 12px -8px $light-mode-input;
+$dark-mode-shadow: 0 0 12px -8px #000000;

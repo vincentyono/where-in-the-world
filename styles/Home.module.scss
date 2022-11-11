@@ -1,0 +1,93 @@
+@use "./variables.scss";
+
+.main {
+  min-height: 100vh;
+}
+
+.container {
+  margin-inline: 5rem;
+}
+
+.filter_container {
+  display: flex;
+  margin-block: 2.5rem;
+  justify-content: space-between;
+}
+
+.search {
+  position: relative;
+  padding-inline: 5rem;
+  border-radius: 5px;
+
+  input {
+    border: none;
+    outline: none;
+    width: 20rem;
+    height: 3.5rem;
+    font-weight: 600;
+    user-select: none;
+  }
+}
+
+.filter {
+  position: relative;
+  border-radius: 5px;
+
+  select {
+    font-weight: 600;
+    height: 100%;
+    padding-inline: 1.5rem 4rem;
+    border: none;
+    outline: none;
+    appearance: none;
+    user-select: none;
+    border-radius: 5px;
+  }
+}
+
+#magnifying_glass {
+  position: absolute;
+  top: 26%;
+  left: 2rem;
+  height: 24px;
+  width: 24px;
+}
+
+#down_arrow {
+  position: absolute;
+  top: 1.2rem;
+  right: 1rem;
+  height: 16px;
+  width: 16px;
+  pointer-events: none;
+}
+
+.dark_element {
+  color: variables.$dark-mode-text;
+  background-color: variables.$dark-mode-element;
+}
+
+.dark_element::placeholder {
+  color: variables.$dark-mode-text;
+}
+
+.light_element {
+  color: variables.$light-mode-text;
+  background-color: variables.$light-mode-element;
+}
+
+.dark_bg {
+  background-color: variables.$dark-mode-bg;
+}
+
+.light_bg {
+  background-color: variables.$light-mode-bg;
+}
+
+.dark_shadow {
+  box-shadow: variables.$dark-mode-shadow;
+}
+
+.light_shadow {
+  box-shadow: variables.$light-mode-shadow;
+}

@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { MoonIcon as MoonOutline } from "@heroicons/react/24/outline";
 import { MoonIcon as MoonSolid } from "@heroicons/react/24/solid";
 import styles from "../styles/Header.module.scss";
+import { DarkModeContext, DarkModeContextInterface } from "../pages/_app";
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, setDarkMode } = useContext(
+    DarkModeContext
+  ) as DarkModeContextInterface;
+
   return (
     <div
       className={`${styles.container} ${darkMode ? styles.dark : styles.light}`}

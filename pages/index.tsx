@@ -1,15 +1,27 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import Header from "../components/Header";
+import { DarkModeContext } from "./_app";
 import {
   MagnifyingGlassIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import { DarkModeContextInterface } from "./_app";
+import axios from "axios";
+
+export const getStaticProps = async () => {
+  const response = await axios.get("http://restcountries.com/v3.1/all");
+  console.log(response.data);
+  return {
+    props: {},
+  };
+};
 
 const Home = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const { darkMode } = useContext(DarkModeContext) as DarkModeContextInterface;
+
   return (
     <Fragment>
       <Head>

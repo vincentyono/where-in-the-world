@@ -1,19 +1,20 @@
-import { Fragment, useContext, useState } from "react";
+import type { NextPage } from "next";
 import type { ChangeEvent } from "react";
+import type { DarkModeContextInterface } from "./_app";
+import type CountryInterface from "../interfaces/CountryInterface";
+
+import { Fragment, useContext, useState } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.scss";
+import axios from "axios";
 import Header from "../components/Header";
 import { DarkModeContext } from "./_app";
+import CountryCard from "../components/CountryCard";
 import {
   MagnifyingGlassIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import { DarkModeContextInterface } from "./_app";
-import axios from "axios";
-import CountryInterface from "../interfaces/CountryInterface";
-import { NextPage } from "next";
-import CountryCard from "../components/CountryCard";
+
+import styles from "../styles/Home.module.scss";
 
 export const getStaticProps = async () => {
   const response = await axios.get("https://restcountries.com/v3.1/all");

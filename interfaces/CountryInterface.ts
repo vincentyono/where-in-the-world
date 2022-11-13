@@ -112,6 +112,7 @@ export default interface CountryInterface {
   };
   latlng: number[];
   landlocked: boolean;
+  borders: string[];
   area: number;
   flag: string;
   flags: {

@@ -21,21 +21,3 @@
 #flag {
   border-radius: 5px 5px 0 0;
 }
-
-.dark_shadow {
-  box-shadow: variables.$dark-mode-shadow;
-}
-
-.dark_element {
-  color: variables.$dark-mode-text;
-  background-color: variables.$dark-mode-element;
-}
-
-.light_element {
-  color: variables.$light-mode-text;
-  background-color: variables.$light-mode-element;
-}
-
-.light_shadow {
-  box-shadow: variables.$light-mode-shadow;
-}

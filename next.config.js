@@ -9,6 +9,7 @@ const nextConfig = {
   },
   images: {
     domains: ["flagcdn.com", "upload.wikimedia.org"],
+    formats: ["image/webp"],
   },
 };
 

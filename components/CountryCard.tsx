@@ -4,22 +4,23 @@ import Link from "next/link";
 import Image from "next/image";
 import CountryInterface from "../interfaces/CountryInterface";
 import styles from "../styles/CountryCard.module.scss";
+import style from "../styles/DarkMode.module.scss";
 
 const CountryCard = ({ country }: { country: CountryInterface }) => {
   const { darkMode } = useContext(DarkModeContext) as DarkModeContextInterface;
 
   return (
-    <Link href={`/${country.cca2.toLowerCase()}`}>
+    <Link href={`/${country.cca3.toLowerCase()}`}>
       <div
         className={`${styles.container} ${
           darkMode
-            ? `${styles.dark_element} ${styles.dark_shadow}`
-            : `${styles.light_element} ${styles.light_shadow}`
+            ? `${style.dark_element} ${style.dark_shadow}`
+            : `${style.light_element} ${style.light_shadow}`
         }`}
       >
         <Image
           id={styles.flag}
-          className={darkMode ? styles.dark_shadow : styles.light_shadow}
+          className={darkMode ? style.dark_shadow : style.light_shadow}
           src={country.flags.png}
           alt={`${country.name.common} flag`}
           width={300}
@@ -38,7 +39,7 @@ const CountryCard = ({ country }: { country: CountryInterface }) => {
             </p>
             <p>
               <span className={styles.info_label}>Capital:</span>{" "}
-              {` ${country.capital}`}
+              {` ${country.capital ? country.capital : "-"}`}
             </p>
           </div>
         </div>

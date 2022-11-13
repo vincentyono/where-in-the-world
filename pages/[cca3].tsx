@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import type CountryInterface from "../interfaces/CountryInterface";
 
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Head from "next/head";
@@ -11,7 +11,6 @@ import { DarkModeContext, DarkModeContextInterface } from "./_app";
 
 import styles from "../styles/CountryDetail.module.scss";
 import style from "../styles/DarkMode.module.scss";
-import { Html } from "next/document";
 import Link from "next/link";
 
 export const getStaticPaths = async () => {
@@ -57,7 +56,7 @@ const CountryDetail: NextPage<{
   const { darkMode } = useContext(DarkModeContext) as DarkModeContextInterface;
 
   return (
-    <Html lang="en">
+    <Fragment>
       <Head>
         <title>{country.name.common} - Where in the world?</title>
       </Head>
@@ -201,7 +200,7 @@ const CountryDetail: NextPage<{
           </div>
         </div>
       </main>
-    </Html>
+    </Fragment>
   );
 };
 

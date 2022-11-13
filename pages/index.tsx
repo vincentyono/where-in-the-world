@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ChangeEvent } from "react";
+import { ChangeEvent, Fragment } from "react";
 import type { DarkModeContextInterface } from "./_app";
 import type CountryInterface from "../interfaces/CountryInterface";
 
@@ -16,7 +16,6 @@ import {
 
 import styles from "../styles/Home.module.scss";
 import style from "../styles/DarkMode.module.scss";
-import { Html } from "next/document";
 
 export const getStaticProps = async () => {
   const response = await axios.get("https://restcountries.com/v3.1/all");
@@ -58,7 +57,7 @@ const Home: NextPage<{ data: CountryInterface[] }> = ({ data }) => {
   };
 
   return (
-    <Html lang="en">
+    <Fragment>
       <Head>
         <title>Home - Where in the world?</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -117,7 +116,7 @@ const Home: NextPage<{ data: CountryInterface[] }> = ({ data }) => {
           </div>
         </div>
       </main>
-    </Html>
+    </Fragment>
   );
 };
 

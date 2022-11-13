@@ -12,9 +12,7 @@ export const DarkModeContext = createContext<DarkModeContextInterface | {}>({});
 const App = ({ Component, pageProps }: AppProps) => {
   const [darkMode, setDarkMode] = useState(false);
   return (
-    <DarkModeContext.Provider
-      value={{ darkMode: darkMode, setDarkMode: setDarkMode }}
-    >
+    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
       <Component {...pageProps} />;
     </DarkModeContext.Provider>
   );

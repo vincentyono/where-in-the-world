@@ -71,36 +71,6 @@
   justify-content: space-between;
 }
 
-.dark_element {
-  color: variables.$dark-mode-text;
-  background-color: variables.$dark-mode-element;
-}
-
-.dark_element::placeholder {
-  color: variables.$dark-mode-text;
-}
-
-.light_element {
-  color: variables.$light-mode-text;
-  background-color: variables.$light-mode-element;
-}
-
-.dark_bg {
-  background-color: variables.$dark-mode-bg;
-}
-
-.light_bg {
-  background-color: variables.$light-mode-bg;
-}
-
-.dark_shadow {
-  box-shadow: variables.$dark-mode-shadow;
-}
-
-.light_shadow {
-  box-shadow: variables.$light-mode-shadow;
-}
-
 @media (max-width: 1420px) {
   .card_container {
     grid-template-columns: repeat(3, 300px);

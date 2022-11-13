@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import type CountryInterface from "../interfaces/CountryInterface";
 
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Head from "next/head";
@@ -54,12 +54,10 @@ const CountryDetail: NextPage<{
   country: CountryInterface;
   borders: { name: string; cca3: string }[];
 }> = ({ country, borders }) => {
-  const { darkMode, setDarkMode } = useContext(
-    DarkModeContext
-  ) as DarkModeContextInterface;
+  const { darkMode } = useContext(DarkModeContext) as DarkModeContextInterface;
 
   return (
-    <Fragment>
+    <Html lang="en">
       <Head>
         <title>{country.name.common} - Where in the world?</title>
       </Head>
@@ -135,10 +133,14 @@ const CountryDetail: NextPage<{
               <div>
                 <p>
                   <span>Top Level Domain:</span>
-                  {` ${country.tld.map((tld, index) => {
-                    if (index < country.tld.length - 1) return tld + ", ";
-                    return tld;
-                  })}`}
+                  {` ${
+                    country.tld
+                      ? country.tld.map((tld, index) => {
+                          if (index < country.tld.length - 1) return tld + ", ";
+                          return tld;
+                        })
+                      : "-"
+                  }`}
                 </p>
                 <p>
                   <span>Currencies:</span>
@@ -199,7 +201,7 @@ const CountryDetail: NextPage<{
           </div>
         </div>
       </main>
-    </Fragment>
+    </Html>
   );
 };
 

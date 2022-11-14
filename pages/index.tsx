@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ChangeEvent, Fragment, useEffect } from "react";
+import { ChangeEvent, Fragment } from "react";
 import type { DarkModeContextInterface } from "./_app";
 import type CountryInterface from "../interfaces/CountryInterface";
 

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ChangeEvent, Fragment } from "react";
+import { ChangeEvent, Fragment, useEffect } from "react";
 import type { DarkModeContextInterface } from "./_app";
 import type CountryInterface from "../interfaces/CountryInterface";
 
@@ -19,7 +19,9 @@ import style from "../styles/DarkMode.module.scss";
 
 export const getStaticProps = async () => {
   const response = await axios.get("https://restcountries.com/v3.1/all");
-  const data = response.data;
+  const data = response.data.sort((a: CountryInterface, b: CountryInterface) =>
+    a.name.common > b.name.common ? 1 : -1
+  );
   return {
     props: {
       data,
@@ -35,25 +37,47 @@ const Home: NextPage<{ data: CountryInterface[] }> = ({ data }) => {
     if (event.target.value == "") setCountryList(data);
     else
       setCountryList(
-        data.filter((country) => {
-          return (
-            country.name.common
-              .toLowerCase()
-              .includes(event.target.value.toLowerCase()) ||
-            country.name.official
-              .toLowerCase()
-              .includes(event.target.value.toLowerCase())
-          );
-        })
+        data
+          .filter((country) => {
+            return (
+              country.name.common
+                .toLowerCase()
+                .includes(event.target.value.toLowerCase()) ||
+              country.name.official
+                .toLowerCase()
+                .includes(event.target.value.toLowerCase()) ||
+              country.cca2
+                .toLowerCase()
+                .includes(event.target.value.toLowerCase()) ||
+              country.cca3
+                .toLowerCase()
+                .includes(event.target.value.toLowerCase()) ||
+              (country.cioc &&
+                country.cioc
+                  .toLowerCase()
+                  .includes(event.target.value.toLowerCase()))
+            );
+          })
+          .sort((a: CountryInterface, b: CountryInterface) =>
+            a.name.common > b.name.common ? 1 : -1
+          )
       );
   };
 
   const filterHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCountryList((prev) =>
-      prev.filter((country) => {
-        return country.region == event.target.value;
-      })
-    );
+    if (event.target.value == "None") {
+      setCountryList(data);
+    } else {
+      setCountryList(
+        data
+          .filter((country) => {
+            return country.region == event.target.value;
+          })
+          .sort((a: CountryInterface, b: CountryInterface) =>
+            a.name.common > b.name.common ? 1 : -1
+          )
+      );
+    }
   };
 
   return (
@@ -93,6 +117,7 @@ const Home: NextPage<{ data: CountryInterface[] }> = ({ data }) => {
               }`}
             >
               <select
+                aria-label="filter by region"
                 name="filter"
                 className={darkMode ? style.dark_element : style.light_element}
                 onChange={filterHandler}

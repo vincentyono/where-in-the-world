@@ -134,9 +134,9 @@ const CountryDetail: NextPage<{
                   <span>Top Level Domain:</span>
                   {` ${
                     country.tld
-                      ? country.tld.map((tld, index) => {
-                          if (index < country.tld.length - 1) return tld + ", ";
-                          return tld;
+                      ? country.tld.map((tld) => {
+                          if (country.tld.length === 1) return tld;
+                          return " " + tld;
                         })
                       : "-"
                   }`}
@@ -145,16 +145,11 @@ const CountryDetail: NextPage<{
                   <span>Currencies:</span>
                   {` ${
                     country.currencies
-                      ? Object.keys(country.currencies).map(
-                          (currency, index) => {
-                            if (
-                              index <
-                              Object.keys(country.currencies).length - 1
-                            )
-                              return country.currencies[currency].name + ", ";
+                      ? Object.keys(country.currencies).map((currency) => {
+                          if (Object.keys(country.currencies).length === 1)
                             return country.currencies[currency].name;
-                          }
-                        )
+                          return " " + country.currencies[currency].name;
+                        })
                       : "-"
                   }`}
                 </p>
@@ -162,16 +157,11 @@ const CountryDetail: NextPage<{
                   <span>Languages:</span>
                   {` ${
                     country.languages
-                      ? Object.keys(country.languages).map(
-                          (language, index) => {
-                            if (
-                              index <
-                              Object.keys(country.languages).length - 1
-                            )
-                              return country.languages[language] + ", ";
+                      ? Object.keys(country.languages).map((language) => {
+                          if (Object.keys(country.languages).length === 1)
                             return country.languages[language];
-                          }
-                        )
+                          return " " + country.languages[language];
+                        })
                       : "-"
                   }`}
                 </p>

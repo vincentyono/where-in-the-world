@@ -19,15 +19,16 @@ const CountryCard = ({ country }: { country: CountryInterface }) => {
         }`}
       >
         <Image
-          id={styles.flag}
-          className={darkMode ? style.dark_shadow : style.light_shadow}
+          className={`${styles.flag} ${
+            darkMode ? style.dark_shadow : style.light_shadow
+          }`}
           src={country.flags.png}
-          alt={`${country.name.common} flag`}
+          alt={`${country.name.official} flag`}
           width={300}
           height={165}
         />
         <div className={styles.info_container}>
-          <h3>{country.name.common}</h3>
+          <h2>{country.name.common}</h2>
           <div className={`${styles.info_detail}`}>
             <p>
               <span className={styles.info_label}>Population:</span>{" "}

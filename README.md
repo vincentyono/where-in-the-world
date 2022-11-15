@@ -40,7 +40,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution](https://www.frontendmentor.io/solutions/where-in-the-world-7uFv6z7g0Q)
-- Live Site URL: [Live Demo](https://where-in-the-world-b0helyors-vincentyono.vercel.app/)
+- Live Site URL: [Live Demo](https://where-in-the-world-gpyo65ers-vincentyono.vercel.app/)
 
 ---
 
